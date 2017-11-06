@@ -26,7 +26,7 @@ const findLocation = (req, res, next) => {
   const limit = parseInt(req.query.limit, 10) || 10;
 
   // Max distance (meter)
-  const maxDistance = parseFloat(req.query.distance) || 8;
+  const maxDistance = parseFloat(req.query.distance) || 8000;
 
   // Convert the distance to radians
   // maxDistance /= EARTH_RADIUS;
