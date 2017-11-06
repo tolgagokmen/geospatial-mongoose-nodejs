@@ -1,11 +1,11 @@
 # GEOSPATIAL MONGOOSE
 A simple way to store and find location using `NodeJS`, `MongoDB`, `Express`
 
-### Feature
+## Feature
 * Add new location
 * Find nearest locations
 
-### Usage
+## Usage
 1. Install packages
 ```sh
     $ yarn install
@@ -19,8 +19,8 @@ A simple way to store and find location using `NodeJS`, `MongoDB`, `Express`
     $ yarn start
 ```
 
-### API Documentation
-##### Add new location
+## API Documentation
+#### Add new location
 > **POST** `domain`/api/v1.0/locations
 
 Body Parameters
@@ -31,7 +31,7 @@ Body Parameters
     	"name": "Viva Star Coffee"
     }
 ```
-##### Add find locations
+#### Find locations
 > **GET** `domain`/api/v1.0/locations?longitude=106.6755828&latitude=10.8079706&limit=10&distance=1000
 
 Query Parameters
@@ -43,7 +43,7 @@ Query Parameters
 | limit | Number (Int) | Default = `10` |
 | distance | Number | Default = `8000`(meter) |
 
-### AUTHOR
+## AUTHOR
 Hoang Trung Hieu
 
 * Email: [info@hieuht.com](mailto:info@hieuht.com)
