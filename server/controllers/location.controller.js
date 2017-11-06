@@ -25,10 +25,10 @@ const listLocations = (req, res, next) => {
 
 const findLocation = (req, res, next) => {
   // Limit of resource
-  const limit = req.query.limit || 10;
+  const limit = parseInt(req.query.limit) || 10;
 
   // Max distance (kilometers)
-  let maxDistance = req.query.distance || 8;
+  let maxDistance = parseInt(req.query.distance) || 8;
 
   // Convert the distance to radians
   maxDistance /= EARTH_RADIUS;
@@ -61,4 +61,38 @@ const findLocation = (req, res, next) => {
     });
 };
 
-module.exports = { listLocations, findLocation };
+const addLocation = (req, res, next) => {
+  if (!req.body.longitude || !req.body.latitude) {
+    return res.json({
+      success: false,
+      status: 404,
+      error: {
+        longitude: 'required',
+        latitude: 'required',
+      },
+    });
+  }
+
+  const location = new Location({
+    name: req.body.name || 'Untitled',
+    loc: [req.body.longitude, req.body.latitude],
+  });
+
+  location.save((err) => {
+    if (err) {
+      res.json({
+        success: false,
+        status: 500,
+        error: err
+      });
+      return next(err);
+    }
+    return res.json({
+      success: true,
+      status: 200,
+      data: location,
+    });
+  })
+};
+
+module.exports = { listLocations, findLocation, addLocation };

@@ -22,6 +22,6 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(helmet());
 
 // Mount api v1 routes
-app.use('/v1', apiRoutes);
+app.use('/api/v1', apiRoutes);
 
 module.exports = app;
