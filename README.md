@@ -1,5 +1,5 @@
 # GEOSPATIAL MONGOOSE
-[![[Dependencies status]](https://david-dm.org/franciscop/server/status.svg)](https://david-dm.org/franciscop/server)
+[![dependencies Status](https://david-dm.org/trunghieuhth/geospatial-mongoose-nodejs/status.svg)](https://david-dm.org/trunghieuhth/geospatial-mongoose-nodejs)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 
