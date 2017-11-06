@@ -8,11 +8,6 @@ router
   .route('/')
   /**
    * @api {GET} /v1/locations
-   * Get a list of locations
-   */
-  // .get(controller.listLocations)
-  /**
-   * @api {GET} /v1/locations
    * Find locations
    * @url {{domain}}/api/v1/locations?longitude=23.6&latitude=46.76&limit=1&distance=100
    * @query req.query.longitude

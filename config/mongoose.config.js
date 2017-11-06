@@ -5,7 +5,7 @@ const { mongo } = require('./vars.config');
 mongoose.Promise = Promise;
 
 mongoose.connection.on('error', (err) => {
-  console.log(`MongoDB connection error: ${err}`);
+  console.log(`MongoDB connection error: ${err}`); // eslint-disable-line no-console
   process.exit(-1);
 });
 

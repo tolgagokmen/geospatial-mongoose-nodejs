@@ -4,15 +4,29 @@ const mongoose = require('mongoose');
  * Location Model
  */
 const LocationSchema = new mongoose.Schema({
-  name: {
+  type: {
     type: String,
-    default: 'Untitled',
-    trim: true,
+    default: 'Feature',
   },
-  loc: {
-    type: [Number], // [ <longitude>, <latitude> ]
-    index: '2d',
+  geometry: {
+    type: {
+      type: String,
+      default: 'Point',
+    },
+    coordinates: {
+      type: [Number], // [ <longitude>, <latitude> ]
+    },
+  },
+  properties: {
+    name: {
+      type: String,
+      trim: true,
+      default: 'Untitled',
+    },
   },
 });
+
+// Define Geometry index
+LocationSchema.index({ geometry: '2dsphere' });
 
 module.exports = mongoose.model('Location', LocationSchema);

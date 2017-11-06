@@ -8,5 +8,5 @@ mongoose.connect();
 
 // Listen to requests
 app.listen(port, () => {
-  console.log(`Server started on port ${port}`);
+  console.log(`Server started on port ${port}`); // eslint-disable-line no-console
 });

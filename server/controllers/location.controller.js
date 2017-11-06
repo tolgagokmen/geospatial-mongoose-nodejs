@@ -1,8 +1,6 @@
-const mongoose = require('mongoose');
-
 const Location = require('../models/location.model');
 
-const EARTH_RADIUS = 6371; // The radius of Earth is 6371 km
+// const EARTH_RADIUS = 6371; // The radius of Earth is 6371 km
 
 const listLocations = (req, res, next) => {
   Location.find()
@@ -25,22 +23,24 @@ const listLocations = (req, res, next) => {
 
 const findLocation = (req, res, next) => {
   // Limit of resource
-  const limit = parseInt(req.query.limit) || 10;
+  const limit = parseInt(req.query.limit, 10) || 10;
 
-  // Max distance (kilometers)
-  let maxDistance = parseInt(req.query.distance) || 8;
+  // Max distance (meter)
+  const maxDistance = parseFloat(req.query.distance) || 8;
 
   // Convert the distance to radians
-  maxDistance /= EARTH_RADIUS;
+  // maxDistance /= EARTH_RADIUS;
 
   // Coordinates [ <longitude>, <latitude> ]
   const coords = [req.query.longitude || 0, req.query.latitude || 0];
 
   // Find location
   Location.find({
-    loc: {
-      $near: coords,
-      $maxDistance: maxDistance,
+    geometry: {
+      $nearSphere: {
+        $geometry: { type: 'Point', coordinates: coords },
+        $maxDistance: maxDistance,
+      },
     },
   })
     .limit(limit)
@@ -74,16 +74,20 @@ const addLocation = (req, res, next) => {
   }
 
   const location = new Location({
-    name: req.body.name || 'Untitled',
-    loc: [req.body.longitude, req.body.latitude],
+    geometry: {
+      coordinates: [parseFloat(req.body.longitude), parseFloat(req.body.latitude)],
+    },
+    properties: {
+      name: req.body.name || 'Untitled',
+    },
   });
 
-  location.save((err) => {
+  return location.save((err) => {
     if (err) {
       res.json({
         success: false,
         status: 500,
-        error: err
+        error: err,
       });
       return next(err);
     }
@@ -92,7 +96,7 @@ const addLocation = (req, res, next) => {
       status: 200,
       data: location,
     });
-  })
+  });
 };
 
 module.exports = { listLocations, findLocation, addLocation };
