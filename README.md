@@ -1,4 +1,9 @@
 # GEOSPATIAL MONGOOSE
+[![[Dependencies status]](https://david-dm.org/franciscop/server/status.svg)](https://david-dm.org/franciscop/server)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+
+
+
 A simple way to store and find location using `NodeJS`, `MongoDB`, `Express`
 
 ## Feature
@@ -20,7 +25,7 @@ A simple way to store and find location using `NodeJS`, `MongoDB`, `Express`
 ```
 
 ## API Documentation
-#### Add new location
+#### [✔] Add new location
 > **POST** `domain`/api/v1.0/locations
 
 Body Parameters
@@ -31,7 +36,7 @@ Body Parameters
     	"name": "Viva Star Coffee"
     }
 ```
-#### Find locations
+#### [✔] Find locations
 > **GET** `domain`/api/v1.0/locations?longitude=106.6755828&latitude=10.8079706&limit=10&distance=1000
 
 Query Parameters
