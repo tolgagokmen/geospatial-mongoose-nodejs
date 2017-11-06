@@ -1,5 +1,5 @@
 {
-  "name": "geolocation-node-mongoose",
+  "name": "geospatial-mongoose-nodejs",
   "version": "1.0.0",
   "description": "A simple way to store location in MongoDB",
   "main": "index.js",
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/trunghieuhth/geolocation-node-mongoose.git"
+    "url": "git+https://github.com/trunghieuhth/geospatial-mongoose-nodejs.git"
   },
   "keywords": [
     "geolocation"
@@ -16,9 +16,9 @@
   "author": "Hoang Trung Hieu",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/trunghieuhth/geolocation-node-mongoose/issues"
+    "url": "https://github.com/trunghieuhth/geospatial-mongoose-nodejs/issues"
   },
-  "homepage": "https://github.com/trunghieuhth/geolocation-node-mongoose#readme",
+  "homepage": "https://github.com/trunghieuhth/geospatial-mongoose-nodejs#readme",
   "dependencies": {
     "bluebird": "^3.5.1",
     "body-parser": "^1.18.2",
